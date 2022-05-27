@@ -48,20 +48,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        if (Storage.user != null) {
-//            mkdApi.fillMkd(this);
-//        } else {
+        if (Storage.user != null) {
+            mkdApi.fillMkd(this);
+        } else {
             Storage.MKD_LIST.clear();
-//        }
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        if (Storage.user == null) {
+        if (Storage.user == null) {
             startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE);
-//        }
+        }
         rvMkd = findViewById(R.id.rv_books);
         btnAdd = findViewById(R.id.btn_add);
         mkdAdapter = new MkdAdapter(this, Storage.MKD_LIST);
